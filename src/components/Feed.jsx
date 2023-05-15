@@ -16,8 +16,6 @@ const Feed = () => {
   const handleClick = (category) => {
     setSelectedCategory(category)
   }
-
-  console.log(videos)
   
   return(
     <Stack 

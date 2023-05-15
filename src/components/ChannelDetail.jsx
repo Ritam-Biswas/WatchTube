@@ -1,4 +1,4 @@
-import { Box, Stack } from '@mui/material'
+import { Box } from '@mui/material'
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchFromApi } from '../utils/api';
@@ -13,16 +13,12 @@ const ChannelDetail = () => {
 
     useEffect(()=>{
         fetchFromApi(`channels?part=snippet,statistics&id=${id}`)
-        .then(({data})=>{
-            setChannelInfo(data.items[0])
-            console.log(data.items[0])
-        })
+        .then(({data})=>setChannelInfo(data.items[0]))
     },[])
 
     useEffect(()=>{
         fetchFromApi(`search?channelId=${id}&part=snippet,id`)
-        .then(({data})=>{setVideos(data.items) 
-            console.log(data.items)})
+        .then(({data})=>setVideos(data.items))
     },[])
 
     return (
